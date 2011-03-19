@@ -1,9 +1,16 @@
 
+
+/*
+  MOBIFIER: SERVER SIDE IMAGE BUNDLER!
+*/
+
 /**
  * Module dependencies.
  */
 
 var express = require('express');
+
+var inliner = require('./mobifier/lib/inliner');
 
 var app = module.exports = express.createServer();
 
@@ -18,19 +25,34 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 });
 
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-});
-
-app.configure('production', function(){
-  app.use(express.errorHandler()); 
-});
-
 // Routes
 
 app.get('/', function(req, res){
   
-  console.log(req);
+  
+  //JSONP request   http://www.mobify.me/api/imager-mobifier
+    //params
+      // rootElement - Scope jsdom image base64 encoder
+
+    // returns
+    
+      /*
+      
+      [
+          { '/Assets/image.gif': 'base64encoded string goes here'}
+        , { '/Assets/image.gif': 'base64encoded string goes here'}
+        , { '/Assets/image.gif': 'base64encoded string goes here'}
+        , { '/Assets/image.gif': 'base64encoded string goes here'}
+        , { '/Assets/image.gif': 'base64encoded string goes here'}
+        , { '/Assets/image.gif': 'base64encoded string goes here'}
+        , { '/Assets/image.gif': 'base64encoded string goes here'}
+      ]
+      */
+      
+      
+  
+  
+  
   res.render('index', {
     title: 'Express'
   });
