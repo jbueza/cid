@@ -1,7 +1,7 @@
 
-# mobifier
+# cid
 
-  server side image bundler addon for mobify
+  server side image bundler service
 
 ## License 
 

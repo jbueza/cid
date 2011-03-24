@@ -21,7 +21,6 @@ function get(url, callback) {
       if (response.statusCode == 200) body += chunk;
     });
   });
-  
 }
 
 function img2base64(url, callback) {
@@ -32,6 +31,7 @@ function img2base64(url, callback) {
 
   request.end();
   request.on('response', function (response) {
+    console.log(response.headers);
     var type = response.headers["content-type"],
         prefix = "data:" + type + ";base64,",
         body = "";
@@ -149,8 +149,8 @@ var inliner = module.exports = function (url, options, callback) {
 
     todo.images && assets.images.each(function () {
       var img = this;
-      img2base64(URL.resolve(url, img.src), function (dataurl) {
-        if (dataurl) images[img.src] = dataurl;
+      img2base64(URL.resolve(url, img.getAttribute('x-src')), function (dataurl) {
+        if (dataurl) images[img.getAttribute('x-src')] = dataurl;
         img.src = dataurl;
         breakdown.images--;
         // console.log('images finished');

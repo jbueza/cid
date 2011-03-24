@@ -1,6 +1,6 @@
 
 /*!
- * mobifier
+ * cid
  * Copyright(c) 2011 jbueza <jbueza@gmail.com>
  * MIT Licensed
  */
