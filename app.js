@@ -35,12 +35,7 @@ app.get('/', function(req, res){
     jsdom.env(html.toString(), ['http://code.jquery.com/jquery-1.5.min.js' ], function(errors, window) {
       var image = window.$("img");
       image.each(function(index, item) {
-      
         var record = {};
-      
-        //record[window.$(item).attr('x-src')] = window.$(item).attr('src');
-        
-//        console.log(window.$(item).attr('src'));
         hashMap[window.$(item).attr('x-src')] = window.$(item).attr('src').replace(/text\/html/gi, 'image/jpeg');
         //hashMap.push(record);
         //console.log();
