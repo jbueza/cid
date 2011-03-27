@@ -51,6 +51,7 @@ Originally, this project was primarily focused on increasing performance on mobi
 * express 2.0+
 
 * npm install express
+* npm install jsdom
 
 <pre>node app.js</pre>
 

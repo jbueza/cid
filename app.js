@@ -3,7 +3,7 @@
 */
 var express = require('express')
   , sys = require('util')
-  , cid = require('./cid/lib/cid')
+  , cid = require('./lib/cid')
   , jsdom = require('jsdom');
 
 var app = module.exports = express.createServer();
@@ -27,7 +27,6 @@ app.get('/', function(req, res){
 
 app.get('/bundle', function(req, res){
   var params = req.query, callback = req.query.callback;
-  
   cid.fetch(params, function(response) {
     var response = callback + "(" + JSON.stringify(response) + ");"; 
     res.writeHead(200, {'Content-Type': 'application/json'});

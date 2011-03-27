@@ -18,38 +18,20 @@ cid.configure = function(key, value) {
   } else {
     cid.options[key] = value;
     return true;
-  }
-  
+  }  
 };
 
 cid.execute = function() {
-  
-  var imgs = $('img[cid-src]');
-  var params = [];
+  var imgs = $('img[cid-src]')
+    , params = [];
   for (var i = 0; i < imgs.length; i++) {
     params.push(imgs[i].getAttribute('cid-src'));
   }
-
-  
-  console.log(params)
   $.ajax({
      url: "http://localhost:3000/bundle",
-     data: { 
-         'root'   : window.location.href
-       , 'images' : params.join(',') 
-     },
+     data: { 'root'   : window.location.href, 'images' : params.join(',') },
      dataType: "jsonp",
      jsonp : "callback",
      jsonpCallback: cid.configure('callback')
   });
 };
-
-//usage:
-/* 
-  cid
-    .configure('bundlerService', 'http://localhost:3000');
-    .configure('callback', 'cidSwapImages')
-    
-    .execute();
-
-*/    
