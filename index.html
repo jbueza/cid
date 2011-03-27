@@ -117,7 +117,8 @@ pageTracker._trackPageview();
 <script src="cid.js"></script> <!-- library -->
 <script>
   cid
-    .configure('service',   'http://cidjs.ca/bundle')
+    //.configure('service',   'http://cidjs.ca/bundle')
+    .configure('service',   '/data/mockService.json')
     .configure('callback',  'cidSwapImages')
     .execute();
 </script>
