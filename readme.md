@@ -1,7 +1,44 @@
+# cid: Image Bundler Service on Node.js
 
-# cid
+  Provides a web service for stateless image bundling for mobile web applications that have
+  designs with extensive images, such as, product catalogs. This gateway takes images,
+  builds a JSON hash map of base64 encoded images, and throws the response back to the frontend for
+  some awesome data uri action on image elements.
 
-  server side image bundler service
+  
+## Browser Support
+
+Any browser that supports data uri:
+
+* Mobile Safari
+* Webkit mobile (Android)
+* Chrome
+* Safari
+* Firefox
+* IE8+
+
+Originally, this project was primarily focused on increasing performance on mobile web applications.
+  
+## Client JavaScript
+
+<pre>
+  cid
+    .configure('service', 'http://localhost:3000') //where your nodejs service is hosted
+    .configure('callback', 'cidSwapImages') //defaulted to cidSwap
+    .configure('lookup', 'cid-src') //css selector attribute for what you want swapped in for b64 strings
+    
+    .start();
+</pre>
+
+
+## Server JavaScript
+
+* node v0.4+
+* express 2.0+
+
+* npm install express
+
+<pre>node app.js</pre>
 
 ## License 
 
