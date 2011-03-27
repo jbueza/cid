@@ -17,7 +17,7 @@ cid.configure = function(key, value) {
     return cid.options[key];
   } else {
     cid.options[key] = value;
-    return true;
+    return this;
   }  
 };
 
@@ -28,7 +28,7 @@ cid.execute = function() {
     params.push(imgs[i].getAttribute('cid-src'));
   }
   $.ajax({
-     url: "http://localhost:3000/bundle",
+     url: cid.configure('service'),
      data: { 'root'   : window.location.href, 'images' : params.join(',') },
      dataType: "jsonp",
      jsonp : "callback",
