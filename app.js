@@ -13,42 +13,15 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
+  app.use(express['static'](__dirname + '/public'));
 });
 
 // Routes
 
 app.get('/', function(req, res){
-  
-  var params = req.query
-    , targetUrl = req.query.targetUrl
-    , srcs = req.query.srcs
-    , callback = req.query.callback
-    , hashMap = {};
-  
-  inliner(targetUrl, function (html) {
-
-
-    jsdom.env(html.toString(), ['http://code.jquery.com/jquery-1.5.min.js' ], function(errors, window) {
-      var image = window.$("img");
-      image.each(function(index, item) {
-        var record = {};
-        hashMap[window.$(item).attr('x-src')] = window.$(item).attr('src').replace(/text\/html/gi, 'image/jpeg');
-        //hashMap.push(record);
-        //console.log();
-      });
-  
-      //hashMap = Array.prototype.slice.call(hashMap, 23);    
-      
-      var response  = callback + "(" + JSON.stringify(hashMap) + ");";    
-      res.writeHead(200, {'Content-Type': 'application/json'});
-      res.end(response);
-
-    });
-
-
-  });
-   
+  res.render('index', {
+    title: 'Express'
+  }); 
 });
 
 app.get('/bundle', function(req, res){
