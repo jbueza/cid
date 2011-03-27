@@ -3,9 +3,8 @@
 */
 var express = require('express')
   , sys = require('util')
-  , cid = require('./lib/cid')
-  , jsdom = require('jsdom');
-
+  , cid = require('./lib/cid');
+  
 var app = module.exports = express.createServer();
 
 app.configure(function(){
