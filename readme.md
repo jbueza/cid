@@ -50,8 +50,9 @@ Originally, this project was primarily focused on increasing performance on mobi
 * node v0.4+
 * express 2.0+
 
-* npm install express
-* npm install jsdom
+* npm install express (required)
+* npm install jsdom (required)
+* npm install supervisor (optional for easier development)
 
 <pre>node app.js</pre>
 
