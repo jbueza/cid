@@ -1,8 +1,5 @@
 <!doctype html> 
-<!--[if lt IE 7 ]><html lang=en-us class="no-js ie6"><![endif]--> 
-<!--[if IE 7 ]><html lang=en-us class="no-js ie7"><![endif]--> 
-<!--[if IE 8 ]><html lang=en-us class="no-js ie8"><![endif]--> 
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang=en-us class=no-js> <!--<![endif]--> 
+<html>
 <head>
   <title>Cid: Image Bundler Service</title>
 </head>
@@ -10,21 +7,47 @@
   <h1>Cid: Image Bundler Service</h1>
   <p>Run this example on any web server (nginx, apache, etc)</p>
   <h2>Images I don't want base64 encoded!</h2>
-
+  <img src="images/ff.jpg">
 
   <h2>Images I want to bundle</h2>
-  <img cid-src="Mog - Status.gif"> <img cid-src="Mog - Credits.gif"><br><br>
-  <img cid-src="Mog (Front).gif"> <img cid-src="Mog (Left).gif"> <img cid-src="Mog (Back).gif"><br>
-  <img cid-src="Mog - Walk (Front).gif"> <img cid-src="Mog - Walk (Left).gif"> <img cid-src="Mog - Walk (Back).gif"><br>
-  <img cid-src="Mog - Sad (Front).gif"> <img cid-src="Mog - Sad (Left).gif"> <img cid-src="Mog - Sad (Back).gif"><br>
-  <img cid-src="Mog - Angry.gif"> <img cid-src="Mog - Shocked.gif"> <img cid-src="Mog - Laugh.gif"> <img cid-src="Mog - Finger.gif"><br>
-  <img cid-src="Mog - Wave (Front).gif"> <img cid-src="Mog - Wave (Back).gif"> <img cid-src="Mog - Victory (Front).gif"> <img cid-src="Mog - Victory (Back).gif"> <img cid-src="Mog - Down.gif"><br>
-  <img cid-src="Mog - Glance.gif"> <img cid-src="Mog - Blink (Front).gif"> <img cid-src="Mog - Blink (Left).gif"><br>
-  <img cid-src="Mog - Battle.gif"> <img cid-src="Mog - Action.gif"> <img cid-src="Mog - Cast.gif"> <img cid-src="Mog - Steal.gif"> <img cid-src="Mog - Shock.gif"> <img cid-src="Mog - Hit.gif"> <img cid-src="Mog - Wounded.gif"> <img cid-src="Mog - Dead.gif"> <img cid-src="Mog - Victory (Left).gif"> in battle<br>
-  <img cid-src="Mog - Chocobo.gif"> Chocobo<br>
-  <img cid-src="Mog - Tent.gif"> Tent<br>
+  <img cid-src="images/Mog - Status.gif"> 
+  <img cid-src="images/Mog - Credits.gif"><br><br>
+  <img cid-src="images/Mog (Front).gif"> 
+  <img cid-src="images/Mog (Left).gif"> 
+  <img cid-src="images/Mog (Back).gif"><br>
+  <img cid-src="images/Mog - Walk (Front).gif"> 
+  <img cid-src="images/Mog - Walk (Left).gif"> 
+  <img cid-src="images/Mog - Walk (Back).gif"><br>
+  <img cid-src="images/Mog - Sad (Front).gif"> 
+  <img cid-src="images/Mog - Sad (Left).gif"> 
+  <img cid-src="images/Mog - Sad (Back).gif"><br>
+
+  <img cid-src="images/Mog - Angry.gif"> 
+  <img cid-src="images/Mog - Shocked.gif"> 
+  <img cid-src="images/Mog - Laugh.gif"> 
+  <img cid-src="images/Mog - Finger.gif"><br>
+  <img cid-src="images/Mog - Wave (Front).gif"> 
+  <img cid-src="images/Mog - Wave (Back).gif"> 
+  <img cid-src="images/Mog - Victory (Front).gif"> 
+  <img cid-src="images/Mog - Victory (Back).gif"> 
+  <img cid-src="images/Mog - Down.gif"><br>
+  <img cid-src="images/Mog - Glance.gif"> 
+  <img cid-src="images/Mog - Blink (Front).gif"> 
+  <img cid-src="images/Mog - Blink (Left).gif"><br>
+  <img cid-src="images/Mog - Battle.gif"> 
+  <img cid-src="images/Mog - Action.gif"> 
+  <img cid-src="images/Mog - Cast.gif"> 
+  <img cid-src="images/Mog - Steal.gif"> 
+  <img cid-src="images/Mog - Shock.gif"> 
   
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
-<script src="cid.js"></script>
+<script src="cid.js"></script> <!-- library -->
+<script>
+  cid
+    //.configure('bundlerService', 'http://localhost:3000')     //where does the gateway exist? cidjs.net
+    //.configure('callback', 'cidSwapImages')
+    .execute();
+  
+</script>
 </html>

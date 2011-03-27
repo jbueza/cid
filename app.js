@@ -3,6 +3,7 @@
 */
 var express = require('express')
   , sys = require('util')
+  , cid = require('./cid/lib/cid')
   , jsdom = require('jsdom');
 
 var app = module.exports = express.createServer();
@@ -20,39 +21,23 @@ app.configure(function(){
 
 app.get('/', function(req, res){
   res.render('index', {
-    title: 'Express'
+    title: 'cid'
   }); 
 });
 
 app.get('/bundle', function(req, res){
   
   var params = req.query
-    , targetUrl = req.query.targetUrl
-    , srcs = req.query.srcs
+    , root = req.query.root
+    , images = req.query.images
     , callback = req.query.callback
     , hashMap = {};
   
-  inliner(targetUrl, function (html) {
 
-
-    jsdom.env(html.toString(), ['http://code.jquery.com/jquery-1.5.min.js' ], function(errors, window) {
-      var image = window.$("img");
-      image.each(function(index, item) {
-        var record = {};
-        hashMap[window.$(item).attr('x-src')] = window.$(item).attr('src').replace(/text\/html/gi, 'image/jpeg');
-        //hashMap.push(record);
-        //console.log();
-      });
-  
-      //hashMap = Array.prototype.slice.call(hashMap, 23);    
-      
-      var response  = callback + "(" + JSON.stringify(hashMap) + ");";    
-      res.writeHead(200, {'Content-Type': 'application/json'});
-      res.end(response);
-
-    });
-
-
+  cid.fetch(params, function(response) {
+    var response = callback + "(" + JSON.stringify(response) + ");"; 
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.end(response);
   });
    
 });
