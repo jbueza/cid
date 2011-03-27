@@ -5,16 +5,30 @@
   builds a JSON hash map of base64 encoded images, and throws the response back to the frontend for
   some awesome data uri action on image elements.
 
+  * Why would I use base64 encoded images instead of using css sprites?
+    * You can use any way you want; however, we've found for distributed development teams spriting (PSD files) can be
+    a huge pain in the a** when merging PSDs with interface sprites
+    
+  * When does base64 encoded images really provide an increased performance benefit?
+    * When your users are on 3G or anything slower than WiFi. We've found with tests that on Wifi
+    there's literally no difference in performance/user experience; however, on 3G/Edge, this approach
+    is much faster with 1 JSONP request for all the images in a hash than doing extensive image http requests
+    
+  * What are the down sides to using this approach? this seems like a silver bullet approach to http request reduction
+    * It is not a silver bullet, as you will be using base64 encoded strings, so you'll end up
+    not using the browser's cache for images on subsequent page views. This approach really benefits
+    mCommerce (ya, mobile commerce) sites/product catalogs/image galleries instead of productivity tools.
   
 ## Browser Support
 
-Any browser that supports data uri:
+Any browser that supports [Data URI Scheme](http://en.wikipedia.org/wiki/Data_URI_scheme):
 
 * Mobile Safari
 * Webkit mobile (Android)
 * Chrome
 * Safari
 * Firefox
+* Opera
 * IE8+
 
 Originally, this project was primarily focused on increasing performance on mobile web applications.
