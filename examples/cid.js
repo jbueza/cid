@@ -27,9 +27,10 @@ cid.execute = function() {
   for (var i = 0; i < imgs.length; i++) {
     params.push(imgs[i].getAttribute('cid-src'));
   }
+  
   $.ajax({
      url: cid.configure('service'),
-     data: { 'root'   : window.location.href, 'images' : params.join(',') },
+     data: { 'root'   : window.location.protocol + '//' + window.location.host, 'images' : params.join(',') },
      dataType: "jsonp",
      jsonp : "callback",
      jsonpCallback: cid.configure('callback')
