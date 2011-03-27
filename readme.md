@@ -56,6 +56,14 @@ Originally, this project was primarily focused on increasing performance on mobi
 
 <pre>node app.js</pre>
 
+## Improvements
+
+* Add the ability to swap in b64 strings only when the element is in viewport
+* Tests on API
+* Tests on how far you could push this (100+ images??)
+* Fallbacks for IE7
+* Test on iPad 2 3g network speed
+
 ## License 
 
 (The MIT License)
