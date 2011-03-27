@@ -70,10 +70,13 @@
     </p>
     
     <p>Run this example on any web server (nginx, apache, etc)</p>
-    <h3>Images I don't want base64 encoded!</h3>
+    <h3>Images I don't want base64 encoded! </h3>
+    <p>This uses the regular src attribute.</p>
     <img src="public/images/ff.jpg">
 
     <h3>Images I want to bundle</h3>
+    <p>This uses 'cid-src' instead of 'src'</p>
+    
     <img cid-src="public/images/Mog - Status.gif"> 
     <img cid-src="public/images/Mog - Credits.gif"><br><br>
     <img cid-src="public/images/Mog (Front).gif"> <img cid-src="public/images/Mog (Left).gif"> <img cid-src="public/images/Mog (Back).gif"><br>
@@ -96,6 +99,14 @@
     <img cid-src="public/images/Mog - Cast.gif"> 
     <img cid-src="public/images/Mog - Steal.gif"> 
     <img cid-src="public/images/Mog - Shock.gif"> 
+    
+    <h2>What Happened</h2>
+    <ol>
+      <li>User goes to your product catalog site / image gallery on their mobile device (phone or tablet)</li>
+      <li>JSONP request to the 'cid' server side image bundler</li>
+      <li>Response comes back with a hash map of base64 encoded images (based on cid-src as key)</li>
+      <li>Swap in cid-src for src on images to process them as base64 instead of an image http request</li>
+    </ol>
 
     <div class="footer">
       get the source code on GitHub : <a href="http://github.com/jbueza/cid">jbueza/cid</a>
