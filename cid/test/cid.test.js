@@ -3,11 +3,11 @@
  * Module dependencies.
  */
 
-var mobifier = require('mobifier')
+var cid = require('cid')
   , should = require('should');
 
 module.exports = {
   'test .version': function(){
-    mobifier.version.should.match(/^\d+\.\d+\.\d+$/);
+    cid.version.should.match(/^\d+\.\d+\.\d+$/);
   }
 };
