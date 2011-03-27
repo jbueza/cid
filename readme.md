@@ -60,9 +60,9 @@ Originally, this project was primarily focused on increasing performance on mobi
 
 * Add the ability to swap in b64 strings only when the element is in viewport
 * Tests on API
-* Tests on how far you could push this (100+ images??)
-* Fallbacks for IE7
+* Tests on how far you could push this (200+ images??)
 * Test on iPad 2 3g network speed
+* Use application cache for storing images that are reused
 
 ## License 
 
