@@ -26,14 +26,8 @@ app.get('/', function(req, res){
 });
 
 app.get('/bundle', function(req, res){
+  var params = req.query, callback = req.query.callback;
   
-  var params = req.query
-    , root = req.query.root
-    , images = req.query.images
-    , callback = req.query.callback
-    , hashMap = {};
-  
-
   cid.fetch(params, function(response) {
     var response = callback + "(" + JSON.stringify(response) + ");"; 
     res.writeHead(200, {'Content-Type': 'application/json'});
@@ -41,7 +35,6 @@ app.get('/bundle', function(req, res){
   });
    
 });
-// Only listen on $ node app.js
 
 if (!module.parent) {
   app.listen(3000);
