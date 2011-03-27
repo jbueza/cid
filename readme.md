@@ -1,6 +1,6 @@
 # cid: Image Bundler Service on Node.js
 
-  Provides a web service for stateless image bundling for mobile web applications that have
+  Provides a web service for stateless image bundling for mobile web applications (phones + tablets on 3g) that have
   designs with extensive images, such as, product catalogs. This gateway takes images,
   builds a JSON hash map of base64 encoded images, and throws the response back to the frontend for
   some awesome data uri action on image elements.
@@ -31,7 +31,7 @@ Any browser that supports [Data URI Scheme](http://en.wikipedia.org/wiki/Data_UR
 * Opera
 * IE8+
 
-Originally, this project was primarily focused on increasing performance on mobile web applications.
+Originally, this project was primarily focused on increasing performance on mobile web applications (for phones and tablets).
   
 ## Client JavaScript
 
