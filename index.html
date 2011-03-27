@@ -50,9 +50,12 @@
     </div>
 
     <h2>Authors</h2>
-<p>jbueza (jbueza@gmail.com)<br/><br/>      </p>
+<p>jbueza (jbueza@gmail.com)
+<br/>
+<br/>      </p>
 <h2>Contact</h2>
-<p>Jaime Bueza (jbueza@gmail.com)<br/>      </p>
+<p>Jaime Bueza (jbueza@gmail.com)
+<br/>      </p>
 
 
     <h2>Download</h2>
@@ -65,12 +68,50 @@
       by running:
       <pre>$ git clone git://github.com/jbueza/cid</pre>
     </p>
+    
+    
+    <h1>Cid: Image Bundler Service</h1>
+    <p>Run this example on any web server (nginx, apache, etc)</p>
+    <h2>Images I don't want base64 encoded!</h2>
+    <img src="images/ff.jpg">
+
+    <h2>Images I want to bundle</h2>
+    <img cid-src="images/Mog - Status.gif"> 
+    <img cid-src="images/Mog - Credits.gif"><br><br>
+    <img cid-src="images/Mog (Front).gif"> <img cid-src="images/Mog (Left).gif"> <img cid-src="images/Mog (Back).gif"><br>
+    <img cid-src="images/Mog - Walk (Front).gif"> <img cid-src="images/Mog - Walk (Left).gif"> <img cid-src="images/Mog - Walk (Back).gif"><br>
+    <img cid-src="images/Mog - Sad (Front).gif"> <img cid-src="images/Mog - Sad (Left).gif"> <img cid-src="images/Mog - Sad (Back).gif"><br>
+    <img cid-src="images/Mog - Angry.gif"> 
+    <img cid-src="images/Mog - Shocked.gif"> 
+    <img cid-src="images/Mog - Laugh.gif"> 
+    <img cid-src="images/Mog - Finger.gif"><br>
+    <img cid-src="images/Mog - Wave (Front).gif"> 
+    <img cid-src="images/Mog - Wave (Back).gif"> 
+    <img cid-src="images/Mog - Victory (Front).gif"> 
+    <img cid-src="images/Mog - Victory (Back).gif"> 
+    <img cid-src="images/Mog - Down.gif"><br>
+    <img cid-src="images/Mog - Glance.gif"> 
+    <img cid-src="images/Mog - Blink (Front).gif"> 
+    <img cid-src="images/Mog - Blink (Left).gif"><br>
+    <img cid-src="images/Mog - Battle.gif"> 
+    <img cid-src="images/Mog - Action.gif"> 
+    <img cid-src="images/Mog - Cast.gif"> 
+    <img cid-src="images/Mog - Steal.gif"> 
+    <img cid-src="images/Mog - Shock.gif"> 
+
+
+
+
+  
+  
+  
 
     <div class="footer">
       get the source code on GitHub : <a href="http://github.com/jbueza/cid">jbueza/cid</a>
     </div>
 
   </div>
+</body>
 
   <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -81,5 +122,13 @@ try {
 var pageTracker = _gat._getTracker("UA-22324537-1");
 pageTracker._trackPageview();
 } catch(err) {}</script>
-</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+<script src="cid.js"></script> <!-- library -->
+<script>
+  cid
+    .configure('service', 'http://172.16.0.4:3000/bundle')     //where does the gateway exist? cidjs.net
+    .configure('callback', 'cidSwapImages')
+    .execute();
+
+</script>
 </html>
