@@ -47,11 +47,11 @@
 
     <div class="description">Server Side Image Bundler for NodeJS</div>
 
-    <p>Let's face it, on 3G latency, websites load slowly. How do we increase performance? We reduce http requests by
-      turning images into base64 encoded strings! This project was inspired by @rem's inliner; however, only goes as
-      far as lets developers specify which images they want to "cid".</p>
+    <p>Let's face it, surfing sites on mobile devices on a 3G network is <em>slow</em>. How do we increase performance? We reduce http requests by
+      turning images into base64 encoded strings! This project was inspired by <a href="http://twitter.com/#!/rem" title="@rem">@rem</a>'s <a href="https://github.com/remy/inliner" title="Inliner">inliner</a> tool; however, only goes as
+      far as lets developers specify which images they want to "cid" by changing the attribute to "cid-src='/myimage.jpg'".</p>
       
-    <p>Cid is a client (uses a bit of jQuery) and server (NodeJS) tool for swapping in images for base64 encoded strings</p>
+    <p>Cid is a client (uses a bit of jQuery for swapping cid-src -> src + jsonp) and server (NodeJS for base64 encoding) tool for swapping in images for base64 encoded strings using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme" title="Data URI Scheme">Data URI Scheme</a>.</p>
 
     <h2>Authors</h2>
 <p>jbueza (jbueza@gmail.com)
@@ -129,6 +129,7 @@
 
     <div class="footer">
       get the source code on GitHub : <a href="http://github.com/jbueza/cid">jbueza/cid</a>
+      <p>PS: on gh-pages, I mocked the service by hitting a static json file, but you can feel free to set it up yourself by cloning it!</p>
     </div>
 
   </div>
