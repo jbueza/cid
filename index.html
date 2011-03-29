@@ -45,9 +45,13 @@
     <h1><a href="http://github.com/jbueza/cid">cid</a>
       <span class="small">by <a href="http://github.com/jbueza">jbueza</a></span></h1>
 
-    <div class="description">
-      Server Side Image Bundler for NodeJS
-    </div>
+    <div class="description">Server Side Image Bundler for NodeJS</div>
+
+    <p>Let's face it, on 3G latency, websites load slowly. How do we increase performance? We reduce http requests by
+      turning images into base64 encoded strings! This project was inspired by @rem's inliner; however, only goes as
+      far as lets developers specify which images they want to "cid".</p>
+      
+    <p>Cid is a client (uses a bit of jQuery) and server (NodeJS) tool for swapping in images for base64 encoded strings</p>
 
     <h2>Authors</h2>
 <p>jbueza (jbueza@gmail.com)
@@ -107,6 +111,13 @@
     <img cid-src="public/images/Mog - Cast.gif"> 
     <img cid-src="public/images/Mog - Steal.gif"> 
     <img cid-src="public/images/Mog - Shock.gif"> 
+    
+    <pre>
+      <img cid-src="public/images/Mog - Status.gif"> 
+      <img cid-src="public/images/Mog - Credits.gif"><br><br>
+      <img cid-src="public/images/Mog (Front).gif"> 
+      <img cid-src="public/images/Mog (Left).gif">
+    </pre>
     
     <h2>What Happened</h2>
     <ol>
