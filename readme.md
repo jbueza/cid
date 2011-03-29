@@ -62,6 +62,7 @@ Originally, this project was primarily focused on increasing performance on mobi
 * Tests on how far you could push this (200+ images??)
 * Test on iPad 2 3g network speed
 * Use application cache for storing images that are reused
+* Enable offline use by generating a JSON file with a target url and image srcs
 
 ## License 
 
