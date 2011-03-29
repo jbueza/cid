@@ -46,7 +46,7 @@
 
     <div class="description">Image Bundler Tool for jQuery + NodeJS</div>
 
-    <p>Let's face it, surfing sites on mobile devices on a 3G network is <em>slow</em>. Even when images are cached, they still do http responses of 304s (not modified). How do we increase performance? We reduce http requests by
+    <p>Let's face it, surfing sites on mobile devices on a 3G network is <em>slow</em>. Even when images are cached, they still do http requests and get 304s (not modified, not downloaded, still asks the server if it hasn't changed). How do we increase performance? We reduce http requests by
       turning images into base64 encoded strings! This project was inspired by <a href="http://twitter.com/#!/rem" title="@rem">@rem</a>'s <a href="https://github.com/remy/inliner" title="Inliner">inliner</a> tool; however, it now lets
       developers specify which images they want to base64 encode by adding the attribute "cid-src='/myimage.jpg'".</p>
       
