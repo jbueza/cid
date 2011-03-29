@@ -48,8 +48,8 @@
     <div class="description">Image Bundler Tool for jQuery + NodeJS</div>
 
     <p>Let's face it, surfing sites on mobile devices on a 3G network is <em>slow</em>. How do we increase performance? We reduce http requests by
-      turning images into base64 encoded strings! This project was inspired by <a href="http://twitter.com/#!/rem" title="@rem">@rem</a>'s <a href="https://github.com/remy/inliner" title="Inliner">inliner</a> tool; however, only goes as
-      far as lets developers specify which images they want to "cid" by changing the attribute to "cid-src='/myimage.jpg'".</p>
+      turning images into base64 encoded strings! This project was inspired by <a href="http://twitter.com/#!/rem" title="@rem">@rem</a>'s <a href="https://github.com/remy/inliner" title="Inliner">inliner</a> tool; however, it now lets
+      developers specify which images they want to base64 encode by adding the attribute "cid-src='/myimage.jpg'".</p>
       
     <p>Cid is a client (uses a bit of jQuery for swapping cid-src -> src + jsonp) and server (NodeJS for base64 encoding) tool for swapping in images for base64 encoded strings using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme" title="Data URI Scheme">Data URI Scheme</a>.</p>
 
@@ -112,12 +112,10 @@
     <img cid-src="public/images/Mog - Steal.gif"> 
     <img cid-src="public/images/Mog - Shock.gif"> 
     
-    <pre>
-      &lt;img cid-src="public/images/Mog - Status.gif"&gt;
+    <pre>&lt;img cid-src="public/images/Mog - Status.gif"&gt;
       &lt;img cid-src="public/images/Mog - Credits.gif"&gt;
       &lt;img cid-src="public/images/Mog (Front).gif"&gt;
-      &lt;img cid-src="public/images/Mog (Left).gif"&gt;
-    </pre>
+      &lt;img cid-src="public/images/Mog (Left).gif"&gt;</pre>
     
     <h2>What Happened</h2>
     <ol>
@@ -126,7 +124,7 @@
       <li>Response comes back with a hash map of base64 encoded images (based on cid-src as key)</li>
       <li>Swap in cid-src for src on images to process them as base64 instead of an image http request (see <a href="http://en.wikipedia.org/wiki/Data_URI_scheme" title="Data URI Scheme">Data URI Scheme</a>)</li>
     </ol>
-
+  
     <div class="footer">
       get the source code on GitHub : <a href="http://github.com/jbueza/cid">jbueza/cid</a>
       <p>PS: on gh-pages, I mocked the service by hitting a static json file, but you can feel free to set it up yourself by cloning it!</p>
