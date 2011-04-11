@@ -42,12 +42,17 @@
         <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
     </div>
 
-    <h1><a href="http://github.com/jbueza/cid">cid</a>
-      <span class="small">by <a href="http://github.com/jbueza">jbueza</a></span></h1>
+    <h1><a href="http://github.com/jbueza/cid">cid</a><span class="small">by <a href="http://github.com/jbueza">jbueza</a></span></h1>
 
-    <div class="description">
-      Server Side Image Bundler for NodeJS
-    </div>
+    <div class="description">Image Bundler Tool for jQuery + NodeJS</div>
+
+    <p>Let's face it, surfing sites on mobile devices on a 3G network is <em>slow</em>. Even when images are cached, they still do http requests and get 304s (not modified, not downloaded, still asks the server if it hasn't changed).</p>
+    
+    <p>How do we increase performance? We reduce http requests by
+      turning the images into a hash map (jsonp) with base64 encoded strings! This project was inspired by <a href="http://twitter.com/#!/rem" title="@rem">@rem</a>'s <a href="https://github.com/remy/inliner" title="Inliner">inliner</a> tool; however, it now lets
+      developers specify which images they want to base64 encode by adding the attribute "cid-src='/myimage.jpg'".</p>
+      
+    <p>Cid is a client (uses a bit of jQuery for swapping cid-src -> src + jsonp) and server (NodeJS for base64 encoding) tool for swapping in images for base64 encoded strings using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme" title="Data URI Scheme">Data URI Scheme</a>.</p>
 
     <h2>Authors</h2>
 <p>jbueza (jbueza@gmail.com)
@@ -108,6 +113,55 @@
     <img cid-src="public/images/Mog - Steal.gif"> 
     <img cid-src="public/images/Mog - Shock.gif"> 
     
+    
+    <h3>The Markup</h3>
+    <pre>&lt;img cid-src="public/images/Mog - Status.gif"&gt;
+      &lt;img cid-src="public/images/Mog - Credits.gif"&gt;
+      &lt;img cid-src="public/images/Mog (Front).gif"&gt;
+      &lt;img cid-src="public/images/Mog (Left).gif"&gt;</pre>
+      
+    <h3>The Bootstrap</h3>
+    <pre>&lt;script src="cid.js"&gt;&lt;/script&gt; <!-- library -->
+    &lt;script&gt;
+      cid
+        .configure('service', 'http://localhost:3000/bundle') //where does the cid service reside?
+        .configure('callback', 'cidSwapImages')
+        .execute();
+
+    &lt;/script&gt;</pre>
+      
+    <h3>The JSONP Response</h3>
+    <pre><code>cidSwapImages({
+        "public/images/Mog - Blink (Left).gif": "data:image/gif;base64,R0lGODlhIAAs...",
+        "public/images/Mog - Battle.gif": "data:image/gif;base64,R0lGODlhIAAsAKIEAAC...",
+        "public/images/Mog - Action.gif": "data:image/gif;base64,R0lGODlhIAAsAKIFAAC...",
+        "public/images/Mog - Cast.gif": "data:image/gif;base64,R0lGODlhIAAuAKIAAACI...",
+        "public/images/Mog - Steal.gif": "data:image/gif;base64,R0lGODlhIAAoAKIFAAC...",
+        "public/images/Mog - Shock.gif": "data:image/gif;base64,R0lGODlhHgAqAKIEAAC...",
+        "public/images/Mog - Status.gif": "data:image/gif;base64,R0lGODlhTgBQALsQAO...",
+        "public/images/Mog - Credits.gif": "data:image/gif;base64,R0lGODlhOgAqAJEAAAA...",
+        "public/images/Mog (Front).gif": "data:image/gif;base64,R0lGODlhIAAqAKIFAOfj...",
+        "public/images/Mog (Left).gif": "data:image/gif;base64,R0lGODlhIAAsAKIEAACI...",
+        "public/images/Mog (Back).gif": "data:image/gif;base64,R0lGODlhHAAqAKIGABgYGP...",
+        "public/images/Mog - Walk (Front).gif": "data:image/gif;base64,R0lGODlhIAAsALMGAP...",
+        "public/images/Mog - Walk (Left).gif": "data:image/gif;base64,R0lGODlhIAAsAKoEAAC...",
+        "public/images/Mog - Walk (Back).gif": "data:image/gif;base64,R0lGODlhHAAsAKIH...",
+        "public/images/Mog - Sad (Front).gif": "data:image/gif;base64,R0lGODlhIAAoAKIFAOfj4/j...",
+        "public/images/Mog - Sad (Left).gif": "data:image/gif;base64,R0lGODlhIAAsALMEAOfj4...",
+        "public/images/Mog - Sad (Back).gif": "data:image/gif;base64,R0lGODlhHAAmAKIGABgYGACI//j4...",
+        "public/images/Mog - Angry.gif": "data:image/gif;base64,R0lGODlhIAAsAKIAAOfj4/j4+B...",
+        "public/images/Mog - Shocked.gif": "data:image/gif;base64,R0lGODlhIAAwAKIAAOfj4/j4+BgYG...",
+        "public/images/Mog - Laugh.gif": "data:image/gif;base64,R0lGODlhIAAqAKIAAACI//j4+BgYGJigyI...",
+        "public/images/Mog - Finger.gif": "data:image/gif;base64,R0lGODlhIAAqAHcDACH/C05FVFNDQVBFM...",
+        "public/images/Mog - Wave (Front).gif": "data:image/gif;base64,R0lGODlhIAAqAKIGAACI//j4+BgYGJ...",
+        "public/images/Mog - Wave (Back).gif": "data:image/gif;base64,R0lGODlhHAAqAKIGABgYGPj4+ACI/5igyPiQ...",
+        "public/images/Mog - Victory (Front).gif": "data:image/gif;base64,R0lGODlhIAAqAHcGACH/C05FVFNDQV...",
+        "public/images/Mog - Victory (Back).gif": "data:image/gif;base64,R0lGODlhIAAqAKIHABgYGPj4+ACI/5igyO...",
+        "public/images/Mog - Down.gif": "data:image/gif;base64,R0lGODlhIAAkAKIFAOfj4xgYGPj4+JigyPiQuPg4cIhwi...",
+        "public/images/Mog - Glance.gif": "data:image/gif;base64,R0lGODlhIAAqAKIFAACI//j4+BgYGJigyIhwiPg4cAAoiP...",
+        "public/images/Mog - Blink (Front).gif": "data:image/gif;base64,R0lGODlhIAAqAHcGACH/C05FVFNDQVBFMi4wAwEAAAA...",
+    });</code></pre>
+    
     <h2>What Happened</h2>
     <ol>
       <li>User goes to your product catalog site / image gallery on their mobile device (phone or tablet)</li>
@@ -115,9 +169,12 @@
       <li>Response comes back with a hash map of base64 encoded images (based on cid-src as key)</li>
       <li>Swap in cid-src for src on images to process them as base64 instead of an image http request (see <a href="http://en.wikipedia.org/wiki/Data_URI_scheme" title="Data URI Scheme">Data URI Scheme</a>)</li>
     </ol>
-
+  
+    
+  
     <div class="footer">
       get the source code on GitHub : <a href="http://github.com/jbueza/cid">jbueza/cid</a>
+      <p>PS: on gh-pages, I mocked the service by hitting a static json file, but you can feel free to set it up yourself by cloning it!</p>
     </div>
 
   </div>
