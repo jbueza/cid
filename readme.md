@@ -47,7 +47,7 @@ Originally, this project was primarily focused on increasing performance on mobi
 
 ## Server JavaScript
 
-* node v0.4+
+* node v0.4.x+
 * express 2.0+
 
 * npm install express (required)
