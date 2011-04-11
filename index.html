@@ -183,7 +183,8 @@
   <script src="public/javascripts/cid.js"></script> <!-- library -->
   <script>
     cid
-      .configure('service',   'http://cid.nodester.com/bundle')
+      //.configure('service',   'http://cid.nodester.com/bundle')
+      .configure('service',   'http://localhost:3000/bundle')
       //.configure('service',   'public/javascripts/mockService.js')
       .configure('callback',  'cidSwapImages')
       .execute();
