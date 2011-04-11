@@ -178,24 +178,30 @@
     </div>
 
   </div>
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script src="public/javascripts/cid.js"></script> <!-- library -->
+  <script>
+    cid
+      .configure('service',   'http://cid.nodester.com/bundle')
+      //.configure('service',   'public/javascripts/mockService.js')
+      .configure('callback',  'cidSwapImages')
+      .execute();
+  </script>
+  
+  
 </body>
 
+
+
+    <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
   <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-22324537-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
-<script src="public/javascripts/cid.js"></script> <!-- library -->
-<script>
-  cid
-    .configure('service',   'http://cid.nodester.com/bundle')
-    //.configure('service',   'public/javascripts/mockService.js')
-    .configure('callback',  'cidSwapImages')
-    .execute();
-</script>
+  try {
+  var pageTracker = _gat._getTracker("UA-22324537-1");
+  pageTracker._trackPageview();
+  } catch(err) {}</script>
+
 </html>
