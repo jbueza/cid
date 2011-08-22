@@ -64,6 +64,10 @@ Originally, this project was primarily focused on increasing performance on mobi
 * Use application cache for storing images that are reused
 * Enable offline use by generating a JSON file with a target url and image srcs
 
+## Limitations
+
+* query string length (long image srcs)
+
 ## License 
 
 (The MIT License)
