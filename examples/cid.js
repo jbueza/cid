@@ -36,3 +36,15 @@ cid.execute = function() {
      jsonpCallback: cid.configure('callback')
   });
 };
+
+cid.Storage = function CidStorage() {
+  console.log("Instantiating Storage");
+};
+
+cid.Storage.prototype.set = function CidStorageSet(key) {
+  console.log(arguments);
+};
+
+cid.Storage.prototype.get = function CidStorageGet(key, value) {
+  console.log(arguments);
+};

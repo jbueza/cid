@@ -1,23 +1,23 @@
 # cid: Image Bundler Service on Node.js
 
-  Provides a web service for stateless image bundling for mobile web applications (phones + tablets on 3g) that have
-  designs with extensive images, such as, product catalogs. This gateway takes images,
-  builds a JSON hash map of base64 encoded images, and throws the response back to the frontend for
-  some awesome data uri action on image elements.
+Provides a web service for stateless image bundling for mobile web applications (phones + tablets on 3g) that have
+designs with extensive images, such as, product catalogs. This gateway takes images,
+builds a JSON hash map of base64 encoded images, and throws the response back to the frontend for
+some awesome data uri action on image elements.
 
-  * Why would I use base64 encoded images instead of using css sprites?
-    * You can use any way you want; however, we've found for distributed development teams spriting (PSD files) can be
-    a huge pain in the a** when merging PSDs with interface sprites
-    
-  * When does base64 encoded images really provide an increased performance benefit?
-    * When your users are on 3G or anything slower than WiFi. We've found with tests that on Wifi
-    there's literally no difference in performance/user experience; however, on 3G/Edge, this approach
-    is much faster with 1 JSONP request for all the images in a hash than doing extensive image http requests
-    
-  * What are the down sides to using this approach? this seems like a silver bullet approach to http request reduction
-    * It is not a silver bullet, as you will be using base64 encoded strings, so you'll end up
-    not using the browser's cache for images on subsequent page views. This approach really benefits
-    mCommerce (ya, mobile commerce) sites/product catalogs/image galleries instead of productivity tools.
+* Why would I use base64 encoded images instead of using css sprites?
+  * You can use any way you want; however, we've found for distributed development teams spriting (PSD files) can be
+  a huge pain in the a** when merging PSDs with interface sprites
+  
+* When does base64 encoded images really provide an increased performance benefit?
+  * When your users are on 3G or anything slower than WiFi. We've found with tests that on Wifi
+  there's literally no difference in performance/user experience; however, on 3G/Edge, this approach
+  is much faster with 1 JSONP request for all the images in a hash than doing extensive image http requests
+  
+* What are the down sides to using this approach? this seems like a silver bullet approach to http request reduction
+  * It is not a silver bullet, as you will be using base64 encoded strings, so you'll end up
+  not using the browser's cache for images on subsequent page views. This approach really benefits
+  mCommerce (ya, mobile commerce) sites/product catalogs/image galleries instead of productivity tools.
   
 ## Browser Support
 
